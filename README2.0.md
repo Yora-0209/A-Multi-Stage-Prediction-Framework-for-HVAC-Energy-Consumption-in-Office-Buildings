@@ -22,15 +22,6 @@ The proposed framework follows a **three-stage interpretable prediction chain**:
 
 This pipeline enables rapid **post-layout assessment**: once the building's thermal coupling is learned, only spatial parameters (occupant density, equipment power) need to be updated to evaluate new layout scenarios.
 
----
-
-## Repository Structure
-
-```text
-.
-├── temperature_prediction.py   # Stage 1: PC-GNN for multi-zone temperature forecasting
-├── energy_prediction.py        # Stage 2 & 3: Thermal load calculation and hybrid energy estimation
-└── README.md                   # This file
 
 ---
 
@@ -40,19 +31,19 @@ This pipeline enables rapid **post-layout assessment**: once the building's ther
 
 | Class / Function               | Description                                                                                                                                                              | Paper Reference        |
 |--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------|
-| `AdvancedPCICNN`               | Main temperature prediction model. It includes an LSTM encoder, multi-head GNN layers with dynamic edge weights, zone-specific prediction heads, and multi-step correction. | Fig. 4, Eq. (1)-(2)  |
+| `PCGNN`                        | Main temperature prediction model. It includes an LSTM encoder, multi-head GNN layers with dynamic edge weights, zone-specific prediction heads, and multi-step correction. | Fig. 4, Eq. (1)-(2)  |
 | `EnhancedGNNLayer`             | Multi-head graph convolution with temperature-aware gating. Learns dynamic thermal coupling strengths between adjacent zones.                                            | Fig. 5                |
 | `PhysicalConsistencyLoss`      | Loss term that penalizes predictions violating the basic direction of heat transfer (PL constraint).                                                                    | Supplementary S2      |
-| `_apply_multi_step_correction` | Implements the multi-step correction (MC) using influence matrix, momentum, and time decay to enforce physical smoothness across the prediction horizon.                 | Supplementary S2      |
+| `apply_multi_step_correction` | Implements the multi-step correction (MC) using influence matrix, momentum, and time decay to enforce physical smoothness across the prediction horizon.                 | Supplementary S2      |
 
 ### 2. `energy_prediction.py`
 
 | Class / Function         | Description                                                                                                                                                           | Paper Reference        |
 |--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------|
-| `ThermalLoadCalculator`  | Solves the heat-balance differential equation (Eq. 3) to compute net thermal load for each zone. Uses building parameters from Table 1.                               | Eq. (3), Table 1       |
+| `ThermalLoadCalculator`  | Solves the heat-balance differential equation (Eq. 3) to compute net thermal load for each zone. Uses building parameters from Table 1.                               | Eq. (3), Table 1, Supplementary S3 |
 | `HVACEnergyEstimator`    | Converts zone thermal loads into HVAC electrical energy using equipment COP and capacity constraints (physics-based model).                                          | Supplementary S4       |
 | `HybridEnergyPredictor`  | Dynamically fuses the physics-based estimate with a data-driven model (placeholder) using a moving-window MAE to compute fusion weights $\alpha_k^t$.               | Eq. (14)-(17)          |
-| `predict_step`           | One-step prediction routine that can be called iteratively to generate 24-hour forecasts.                                                                              | -                      |
+| `predict_step`           | One-step prediction routine that can be called iteratively to generate 24-timesteps forecasts.                                                                              | -                      |
 
 ## Dependencies
 

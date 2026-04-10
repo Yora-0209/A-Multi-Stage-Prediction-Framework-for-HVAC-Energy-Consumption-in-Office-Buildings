@@ -44,7 +44,7 @@ We explicitly implement three types of physical constraints as discussed in Sect
 | `ThermalLoadCalculator`  | Solves the heat-balance differential equation (Eq. 3) to compute net thermal load for each zone. Uses building parameters from Table 1.                               | Eq. (3), Table 1, Supplementary S3 |
 | `HVACEnergyEstimator`    | Converts zone thermal loads into HVAC electrical energy using equipment COP and capacity constraints (physics-based model).                                          | Supplementary S4       |
 | `HybridEnergyPredictor`  | Dynamically fuses the physics-based estimate with a data-driven model (placeholder) using a moving-window MAE to compute fusion weights $\alpha_k^t$.               | Eq. (14)-(17)          |
-| `predict_step`           | One-step prediction routine that can be called iteratively to generate 24-timesteps forecasts.                                                                              | -                      |
+| `predict_step`           | One-step prediction routine that can be called iteratively to generate 24-timesteps forecasts.                                                                      | -                      |
 
 ## Dependencies
 

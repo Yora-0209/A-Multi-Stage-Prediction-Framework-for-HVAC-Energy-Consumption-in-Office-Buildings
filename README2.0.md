@@ -1,4 +1,4 @@
-# PC-GNN Post-Layout Energy Assessment Framework
+# A-Multi-Stage-Prediction-Approach-for-HVAC-Energy-Consumption-in-Open-Plan-Offices
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
@@ -12,9 +12,9 @@ The code is intended to **demonstrate the model architecture and algorithmic log
 
 ---
 
-## Framework Overview
+## Approach Overview
 
-The proposed framework follows a **three-stage interpretable prediction chain**:
+The proposed approach follows a **three-stage interpretable prediction chain**:
 
 1.  **Stage 1: Multi-Zone Temperature Prediction** – A Physics-Constrained Graph Neural Network (PC-GNN) that combines LSTM temporal encoding with spatial thermal coupling. Three physical constraints (**SP, PL, MC**) are injected to ensure thermodynamic consistency.
 2.  **Stage 2: Zone-Level Thermal Load Calculation** – Predicted temperatures are fed into a heat-balance differential equation (Eq. 3) to solve for the cooling/heating load ($Q_{HVAC}$) of each thermal zone.

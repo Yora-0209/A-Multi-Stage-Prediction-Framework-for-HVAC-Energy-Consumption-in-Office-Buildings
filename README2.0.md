@@ -16,14 +16,17 @@ The code is intended to demonstrate the model architecture and algorithmic logic
 
 The proposed approach follows a **three-stage interpretable prediction chain**:
 
-1.  **Stage 1: Multi-Zone Temperature Prediction** – A Physics-Constrained Graph Neural Network (PC-GNN) that combines LSTM temporal encoding with spatial thermal coupling. Three physical constraints (**SP, PL, MC**) are injected to ensure thermodynamic consistency.
+1.  **Stage 1: Multi-Zone Temperature Prediction** – A Physics-Constrained Graph Neural Network (PC-GNN) that combines LSTM temporal encoding with spatial thermal coupling. Three physical constraints (SP, PL, MC) are injected to ensure thermodynamic consistency.
 2.  **Stage 2: Zone-Level Thermal Load Calculation** – Predicted temperatures are fed into a heat-balance differential equation (Eq. 3) to solve for the cooling/heating load ($Q_{HVAC}$) of each thermal zone.
 3.  **Stage 3: HVAC Energy Estimation & Calibration** – A hybrid fusion model dynamically weights a physics-based energy conversion and a data-driven predictor using real-time error calibration.
 
-This pipeline enables rapid **post-layout assessment**: once the building's thermal coupling is learned, only spatial parameters (occupant density, equipment power) need to be updated to evaluate new layout scenarios.
 
+## Physics Constraints
+We explicitly implement three types of physical constraints as discussed in Section 2.3.1:
+- **SP (Structural Physics)**: Graph topology mapped from office layouts.
+- **PL (Physical Loss)**: Directionality constraint for heat transfer.
+- **MC (Multi-step Correction)**: Inertia-based temporal smoothing.
 
----
 
 ## Key Modules Explained
 

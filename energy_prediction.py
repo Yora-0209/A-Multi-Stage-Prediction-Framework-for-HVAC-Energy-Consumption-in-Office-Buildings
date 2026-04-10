@@ -1,14 +1,12 @@
 """
 HVAC Energy Prediction via Thermal Load Calculation and Hybrid Fusion
 
-This module implements Stage 2 (Thermal Load Calculation) and Stage 3 (HVAC Energy Estimation)
-of the multi-stage framework described in the associated paper.
+This module implements Stage 2 (Thermal Load Calculation) and Stage 3 (HVAC Energy Estimation) of the multi-stage framework described in the associated paper.
 
 Stage 2: Solve heat-balance equation (Eq. 3) to obtain zone-level cooling/heating loads.
 Stage 3: Fuse physics-based conversion and data-driven prediction with dynamic calibration.
 
-The code is intended for methodological review and is not executable without the
-proprietary dataset and environment configuration.
+The code is intended for methodological review and is not executable without the dataset and environment configuration.
 """
 
 import numpy as np

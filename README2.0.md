@@ -4,11 +4,11 @@
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-1.10+-ee4c2c.svg)](https://pytorch.org/)
 
-This repository contains the **reference implementation** of the multi-stage prediction framework described in the paper:
+This repository contains the reference implementation of the multi-stage prediction framework described in the paper:
 
 > **Post-Layout Energy Assessment Framework for Open-Plan Offices: A Physics-Constrained Graph Neural Network-Based Multi-Stage Prediction Approach** 
 
-The code is intended to **demonstrate the model architecture and algorithmic logic** for review. It is **not** a plug-and-play executable because it omits proprietary datasets (LBNL Building 59) and environment-specific configurations. However, the complete framework is laid out with detailed comments.
+The code is intended to demonstrate the model architecture and algorithmic logic for review. It is not a plug-and-play executable because it omits proprietary datasets (LBNL Building 59) and environment-specific configurations. However, the complete framework is laid out with detailed comments.
 
 ---
 

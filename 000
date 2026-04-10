@@ -1,0 +1,40 @@
+# PC-GNN Post-Layout Energy Assessment Framework
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-1.10+-ee4c2c.svg)](https://pytorch.org/)
+
+This repository contains the **reference implementation** of the multi-stage prediction framework described in the paper:
+
+> **Post-Layout Energy Assessment Framework for Open-Plan Offices: A Physics-Constrained Graph Neural Network-Based Multi-Stage Prediction Approach** > *Yongruo Xue, Zhonghua Gou* > *School of Urban Design, Wuhan University, China* > *Correspondence: zh.gou@whu.edu.cn*
+
+The code is intended to **demonstrate the model architecture and algorithmic logic** for peer review and reproducibility. It is **not** a plug-and-play executable because it omits proprietary datasets (LBNL Building 59) and environment-specific configurations. However, the complete framework is laid out with detailed comments, making it straightforward to adapt to your own building data.
+
+---
+
+## 🏗️ Framework Overview
+
+The proposed framework follows a **three-stage interpretable prediction chain**:
+
+1.  **Stage 1: Multi-Zone Temperature Prediction** – A Physics-Constrained Graph Neural Network (PC-GNN) that combines LSTM temporal encoding with spatial thermal coupling. [cite_start]Three physical constraints (**SP, PL, MC**) are injected to ensure thermodynamic consistency [cite: 178-184].
+2.  [cite_start]**Stage 2: Zone-Level Thermal Load Calculation** – Predicted temperatures are fed into a heat-balance differential equation (Eq. 3) to solve for the cooling/heating load ($Q_{HVAC}$) of each thermal zone [cite: 186-190].
+3.  [cite_start]**Stage 3: HVAC Energy Estimation & Calibration** – A hybrid fusion model dynamically weights a physics-based energy conversion and a data-driven predictor using real-time error calibration [cite: 201-210].
+
+This pipeline enables rapid **post-layout assessment**: once the building's thermal coupling is learned, only spatial parameters (occupant density, equipment power) need to be updated to evaluate new layout scenarios.
+
+---
+
+## 📂 Repository Structure
+
+```text
+.
+├── core/
+│   ├── temperature_prediction.py  # Stage 1: PC-GNN implementation with SP/PL/MC constraints
+│   └── energy_engine.py           # Stage 2 & 3: Thermodynamic solver and hybrid fusion model
+├── utils/
+│   ├── data_processor.py          # Skeleton for feature engineering (Table A4)
+│   └── metrics.py                 # Evaluation metrics (RMSE, MAE, CVRMSE, NMBE)
+├── docs/
+│   └── framework_overview.png     # Architectural diagram (Figure 1)
+├── requirements.txt               # Required Python packages
+└── README.md                      # This file

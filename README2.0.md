@@ -53,4 +53,4 @@ We explicitly implement three types of physical constraints as discussed in Sect
 - PyTorch >= 1.10
 - NumPy
 - scikit-learn (for scalers and metrics)
-- (Optional) Matplotlib, Pandas for visualization and data handling
+- Matplotlib, Pandas (Optional, for visualization and data handling) 

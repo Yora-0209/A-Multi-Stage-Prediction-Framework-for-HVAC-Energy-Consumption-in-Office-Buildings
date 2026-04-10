@@ -10,15 +10,14 @@ This repository contains the reference implementation of the multi-stage predict
 
 The code is intended to demonstrate the model architecture and algorithmic logic for review. It is not a plug-and-play executable because it omits proprietary datasets (LBNL Building 59) and environment-specific configurations. However, the complete framework is laid out with detailed comments.
 
----
 
 ## Approach Overview
 
 The proposed approach follows a **three-stage interpretable prediction chain**:
 
-1.  **Stage 1: Multi-Zone Temperature Prediction** – A Physics-Constrained Graph Neural Network (PC-GNN) that combines LSTM temporal encoding with spatial thermal coupling. Three physical constraints (SP, PL, MC) are injected to ensure thermodynamic consistency.
-2.  **Stage 2: Zone-Level Thermal Load Calculation** – Predicted temperatures are fed into a heat-balance differential equation (Eq. 3) to solve for the cooling/heating load ($Q_{HVAC}$) of each thermal zone.
-3.  **Stage 3: HVAC Energy Estimation & Calibration** – A hybrid fusion model dynamically weights a physics-based energy conversion and a data-driven predictor using real-time error calibration.
+- **Stage 1: Multi-Zone Temperature Prediction** – A Physics-Constrained Graph Neural Network (PC-GNN) that combines LSTM temporal encoding with spatial thermal coupling. Three physical constraints (SP, PL, MC) are injected to ensure thermodynamic consistency.
+- **Stage 2: Zone-Level Thermal Load Calculation** – Predicted temperatures are fed into a heat-balance differential equation (Eq. 3) to solve for the cooling/heating load ($Q_{HVAC}$) of each thermal zone.
+- **Stage 3: HVAC Energy Estimation & Calibration** – A hybrid fusion model dynamically weights a physics-based energy conversion and a data-driven predictor using real-time error calibration.
 
 
 ## Physics Constraints

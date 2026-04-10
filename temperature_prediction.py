@@ -3,11 +3,9 @@ Multi-Zone Temperature Prediction with Physics-Constrained Graph Neural Network 
 
 This module implements Stage 1 of the multi-stage framework described in the associated paper.
 It combines LSTM temporal encoding with a multi-head graph attention network.
-Three types of physical constraints are incorporated: Structural Physics (SP),
-Physical Consistency Loss (PL), and Multi-step Correction (MC).
+Three types of physical constraints are incorporated: Structural Physics (SP), Physical Consistency Loss (PL), and Multi-step Correction (MC).
 
-The code is intended for methodological review and is not executable without the
-proprietary dataset and environment configuration.
+The code is intended for methodological review and is not executable without the dataset and environment configuration.
 """
 
 import torch

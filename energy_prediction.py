@@ -214,9 +214,8 @@ class HybridEnergyPredictor:
         return np.mean(errors) if errors else 1.0
 
 
-# ---------------------------------------------------------------------
 # Scenario assessment example (pseudo-code)
-# ---------------------------------------------------------------------
+
 def run_scenario_assessment_example():
     """
     Demonstrates how the framework updates only spatial parameters (occupant density,

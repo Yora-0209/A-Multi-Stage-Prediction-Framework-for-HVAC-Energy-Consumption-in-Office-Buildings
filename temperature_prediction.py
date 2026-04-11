@@ -373,9 +373,8 @@ class PhysicalConsistencyLoss(nn.Module):
         return total_loss, physics_loss
 
 
-# ---------------------------------------------------------------------
 # Training loop skeleton (for illustration only)
-# ---------------------------------------------------------------------
+
 def train_model_example():
     """
     Example training routine showing key steps. Actual implementation requires

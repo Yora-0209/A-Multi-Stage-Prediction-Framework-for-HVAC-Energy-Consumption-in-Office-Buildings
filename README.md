@@ -7,7 +7,7 @@
 This directory contains the core implementation of the multi-stage prediction approach described in the paper:
 **"Post-Layout Energy Assessment Framework for Open-Plan Offices: A Physics-Constrained Graph Neural Network-Based Multi-Stage Prediction Approach"**
 
-> The code is intended to demonstrate the model architecture and algorithmic logic for review. It is not a plug-and-play executable because it omits proprietary datasets (LBNL Building 59) and environment-specific configurations. However, the complete framework is laid out with detailed comments.
+> The code is intended to demonstrate the model architecture and algorithmic logic for review. It is not a plug-and-play executable because it omits datasets (LBNL Building 59) and environment-specific configurations. However, the complete framework is laid out with detailed comments.
 
 
 ## Approach Overview
